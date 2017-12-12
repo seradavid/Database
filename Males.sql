@@ -1,7 +1,7 @@
 ﻿CREATE VIEW [dbo].[Males]
-	AS SELECT "Name", City, CASE WHEN FirstName LIKE '%' + "Name" + '%' THEN DOB ELSE dobparent END AS dob
+	AS SELECT id, "Name", City, CASE WHEN FirstName LIKE '%' + "Name" + '%' THEN DOB ELSE dobparent END AS dob
 	FROM (
-		SELECT City, FirstName, DOB, dobparent, Pos4, Pos5, Pos6, CASE WHEN Sex = 'M' THEN Pos1 END AS Pos1, CASE WHEN Sex = 'M' THEN Pos2 END AS Pos2, CASE WHEN Sex = 'M' THEN Pos3 END AS Pos3
+		SELECT id, City, FirstName, DOB, dobparent, Pos4, Pos5, Pos6, CASE WHEN Sex = 'M' THEN Pos1 END AS Pos1, CASE WHEN Sex = 'M' THEN Pos2 END AS Pos2, CASE WHEN Sex = 'M' THEN Pos3 END AS Pos3
 		FROM names
 	) n
 	UNPIVOT(
