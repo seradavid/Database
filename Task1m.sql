@@ -1,6 +1,6 @@
 ﻿CREATE VIEW [dbo].[Task1m]
-	AS SELECT TOP 10 name, COUNT(name) AS Frequency
+	AS SELECT TOP 10 Name, COUNT(Name) AS Frequency
 	FROM Males
-	GROUP BY name
+	GROUP BY Name
 	ORDER BY Frequency DESC
 	

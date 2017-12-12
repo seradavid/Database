@@ -1,5 +1,5 @@
 ﻿CREATE VIEW [dbo].[names]
-	AS SELECT FirstName, Father, Mother, sex, city, dob, dateadd(year, -25, dob) as "dobparent", Pos1, Pos2, Pos3, Pos4, Pos5, Pos6, Pos7, Pos8, Pos9
+	AS SELECT FirstName, Father, Mother, Sex, City, DOB, dateadd(year, -25, dob) as "dobparent", Pos1, Pos2, Pos3, Pos4, Pos5, Pos6, Pos7, Pos8, Pos9
 	FROM Name n
 	CROSS APPLY(
 		SELECT	Pos1 = xDim.value('/x[1]', 'varchar(max)'),

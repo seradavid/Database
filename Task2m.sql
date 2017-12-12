@@ -11,15 +11,15 @@ OPEN c
 FETCH NEXT FROM c INTO @id
 WHILE (@@FETCH_STATUS = 0)
 BEGIN
-    SELECT TOP 10 m.name, co.Name
+    SELECT TOP 10 m.Name, co.Name
 	FROM Males m
 	JOIN City c
-	ON m.city = c.id
+	ON m.City = c.id
 	JOIN County co
 	ON c.County = co.id
 	WHERE co.id = @id
-	GROUP BY m.name, co.Name
-	ORDER BY COUNT(m.name) DESC
+	GROUP BY m.Name, co.Name
+	ORDER BY COUNT(m.Name) DESC
 
     FETCH NEXT FROM c INTO @id
 END
